@@ -1,0 +1,51 @@
+<div>
+    <div class="row">
+        <div class="page-header text-center">
+            <h1>QUIZ KAMPEN</h1>
+        </div>
+    </div>
+
+    <!-- Creating a row for every field with custom images-->
+    <!--<div class="row" ng-repeat="field in crosswordTextFields">-->
+        <!--<div class="text-center" ng-repeat="letter in field.textFieldAnswer" style="background: url('resources/CellBackground_large.png'); background-repeat:no-repeat; background-size:contain; background-position:center;">-->
+               <!--{{letter}}-->
+        <!--</div>-->
+    <!--</div>-->
+    
+    <!--<div>-->
+        <!--<h1 class="text-center">{{selectedRow}}</h1>-->
+        <!--<table class="table">-->
+            <!--<tr ng-repeat="field in crosswordTextFields" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">-->
+                <!--<td ng-repeat="letter in field.textFieldAnswer" style="background-repeat:no-repeat; background-size:contain; background-position:center;" background="resources/CellBackground.png">-->
+                    <!--<div class="img-responsive text-center" >-->
+                        <!--&lt;!&ndash;<img class="img-responsive" src="resources/CellBackground.png" >&ndash;&gt;-->
+                        <!--&lt;!&ndash;<div style="position: absolute; text-align: center">&ndash;&gt;-->
+                        <!--{{letter}}-->
+                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                    <!--</div>-->
+                <!--</td>-->
+            <!--</tr>-->
+        <!--</table>-->
+    <!--</div>-->
+
+
+    <div class="row">
+        <textarea class="col-xs-12 text-center" ng-model="selectedField.quizText" readonly style="resize: none; border: hidden;" ></textarea>
+    </div>
+</div>
+
+<!--<div>-->
+    <!--<h1 class="text-center">{{selectedRow}}</h1>-->
+    <!--<table class="table-bordered">-->
+        <!--<tr ng-repeat="field in crosswordTextFields" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">-->
+            <!--<td class="col-md-1 text-center" ng-repeat="letter in field.textFieldAnswer" style="background-repeat:no-repeat; background-size:contain; background-position:center;" background="resources/CellBackground.png">-->
+                <!--<div class="img-responsive text-center" >-->
+                    <!--&lt;!&ndash;<img class="img-responsive" src="resources/CellBackground.png" >&ndash;&gt;-->
+                    <!--&lt;!&ndash;<div style="position: absolute; text-align: center">&ndash;&gt;-->
+                    <!--{{letter}}-->
+                    <!--&lt;!&ndash;</div>&ndash;&gt;-->
+                <!--</div>-->
+            <!--</td>-->
+        <!--</tr>-->
+    <!--</table>-->
+<!--</div>-->
