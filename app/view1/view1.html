@@ -6,27 +6,19 @@
     </div>
 
     <!-- Creating a row for every field with custom images-->
-    <!--<div class="row" ng-repeat="field in crosswordTextFields">-->
-        <!--<div class="text-center" ng-repeat="letter in field.textFieldAnswer" style="background: url('resources/CellBackground_large.png'); background-repeat:no-repeat; background-size:contain; background-position:center;">-->
-               <!--{{letter}}-->
-        <!--</div>-->
-    <!--</div>-->
-    
-    <!--<div>-->
-        <!--<h1 class="text-center">{{selectedRow}}</h1>-->
-        <!--<table class="table">-->
-            <!--<tr ng-repeat="field in crosswordTextFields" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">-->
-                <!--<td ng-repeat="letter in field.textFieldAnswer" style="background-repeat:no-repeat; background-size:contain; background-position:center;" background="resources/CellBackground.png">-->
-                    <!--<div class="img-responsive text-center" >-->
-                        <!--&lt;!&ndash;<img class="img-responsive" src="resources/CellBackground.png" >&ndash;&gt;-->
-                        <!--&lt;!&ndash;<div style="position: absolute; text-align: center">&ndash;&gt;-->
-                        <!--{{letter}}-->
-                        <!--&lt;!&ndash;</div>&ndash;&gt;-->
-                    <!--</div>-->
-                <!--</td>-->
-            <!--</tr>-->
-        <!--</table>-->
-    <!--</div>-->
+    <div>
+        <table >
+            <tr ng-repeat="field in crosswordTextFields" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
+                <td ng-repeat="letter in field.textFieldAnswer" style="position: relative;" >
+                    <!--<div class="text-center" style="position: fixed;">{{letter}}</div>-->
+                    <img class="img-responsive" src="resources/CellBackground_large.png" >
+                    <div class="text-center"  style="position: absolute; top: 12%; width:100%; padding: 4px;"><h1>{{letter}}</h1></div>
+                    <!--<div class="text-center" style="position: absolute; height:100% width:100%;">{{letter}}</div>-->
+                </td>
+            </tr>
+        </table>
+        <h1 class="text-center">{{selectedRow}}</h1>
+    </div>
 
 
     <div class="row">
