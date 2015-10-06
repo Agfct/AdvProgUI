@@ -1,5 +1,5 @@
 <div>
-    <div class="row">
+    <div >
         <div class="page-header text-center">
             <h1>QUIZ KAMPEN</h1>
         </div>
@@ -7,22 +7,35 @@
 
     <!-- Creating a row for every field with custom images-->
     <div>
-        <table >
-            <tr ng-repeat="field in crosswordTextFields" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)">
-                <td ng-repeat="letter in field.textFieldAnswer" style="position: relative;" >
-                    <!--<div class="text-center" style="position: fixed;">{{letter}}</div>-->
-                    <img class="img-responsive" src="resources/CellBackground_large.png" >
-                    <div class="text-center"  style="position: absolute; top: 12%; width:100%; padding: 4px;"><h1>{{letter}}</h1></div>
-                    <!--<div class="text-center" style="position: absolute; height:100% width:100%;">{{letter}}</div>-->
+        <table class="col-xs-12">
+            <tr ng-repeat="field in tableWidth()" ng-class="{'selected':$index == selectedRow}" ng-click="setClickedRow($index)" >
+                <!--<td class="col-xs-1" ng-repeat="letter in field.textFieldAnswer track by $index" style="background-color: rgba(200,200,200,0.5); position: relative">-->
+                <td class="col-xs-1" ng-repeat="letter in field track by $index" ng-style="" style=" position: relative">
+                    <div>{{letter}}</div>
                 </td>
             </tr>
         </table>
         <h1 class="text-center">{{selectedRow}}</h1>
+        <!--<div>{{tableWidth()}}</div>-->
+        <div>{{crosswordTextFieldAnswers}}</div>
     </div>
 
-
-    <div class="row">
-        <textarea class="col-xs-12 text-center" ng-model="selectedField.quizText" readonly style="resize: none; border: hidden;" ></textarea>
+    <!-- Textarea with the quizText of the selected crosswordTextField-->
+    <div  class="row" style="margin-top:20px;">
+        <div class="col-xs-2"></div>
+        <!--<textarea class="form-control col-xs-8 text-center " ng-model="selectedField.quizText" readonly style="resize: none; border: hidden;" ></textarea>-->
+        <div class="col-xs-8 text-center" style="background-color: lightgrey" ><h1>{{selectedField.quizText}}</h1></div>
+        <div class="col-xs-2"></div>
+    </div>
+    <!-- Input field for altering textFieldAnswers for selected row-->
+    <div class="row" style="margin-top:20px;">
+        <div class="col-xs-2"></div>
+        <input class="col-xs-8 input-lg" ng-model="selectedField.textAnswer">
+        <div class="col-xs-2"></div>
+    </div>
+    <!-- Button that submits the current answer to the server and sends the user onwards-->
+    <div class="text-center" style="margin-top:20px;">
+        <button class="btn btn-success">Submit</button>
     </div>
 </div>
 
