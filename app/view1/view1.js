@@ -74,6 +74,18 @@ angular.module('myApp.view1', ['ngRoute','ngFitText'])
             return false;
         };
 
+        //Sends a word check requrest to the database
+        $scope.isWordCorrect = function(row, textField) {
+            if(row == 0 && $scope.crosswordTextFieldAnswers[row].textAnswer == "FISH"){
+                return true;
+            }else if(row == 1 && $scope.crosswordTextFieldAnswers[row].textAnswer == "HOME"){
+                return true;
+            } else if(row == 2 && $scope.crosswordTextFieldAnswers[row].textAnswer == "BORING"){
+                return true;
+            }
+            return false;
+        };
+
         //TODO: Denne kjører hver gang det skjer endringer, helt i slutten kan den sende svar inn til server.
         $scope.tableWidth = function (){
 
@@ -96,7 +108,6 @@ angular.module('myApp.view1', ['ngRoute','ngFitText'])
                         tempInnerArray.push($scope.crosswordTextFieldAnswers[i].textAnswer.charAt($scope.crosswordTextFieldAnswers[i].textAnswer.length - currentTextFieldLength));
                         currentTextFieldLength  -= 1;
 
-                        //If you remove a letter in the answer it shoud replace it with a ?
                     }
                     else if(leftPad == 0 && currentTextFieldLength <= 0 && differenceInLength > 0 ) {
                         differenceInLength -= 1;

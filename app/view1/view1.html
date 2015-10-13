@@ -10,7 +10,7 @@
         <table class="col-xs-12" >
             <tr ng-repeat="field in tableWidth()" ng-class="{'selected':$index == selectedRow}"  ng-click="setClickedRow($index)" >
                 <!--<td class="col-xs-1" ng-repeat="letter in field.textFieldAnswer track by $index" style="background-color: rgba(200,200,200,0.5); position: relative">-->
-                <td class="col-xs-1"  ng-repeat="letter in field track by $index" ng-style="{'background-color':(isIndexGrey($parent.$index,$index)?'rgba(75,75,75,0.5)':'none'),'border':(isIndexAnswerCol($parent.$index,$index)?'2px solid #003366':'none')}" style="text-align: center;  position: relative;">
+                <td class="col-xs-1"  ng-repeat="letter in field track by $index" ng-style="{'background-color':(isIndexGrey($parent.$index,$index)?(isWordCorrect($parent.$index,field)?'rgba(0,255,0,0.5)':'rgba(75,75,75,0.5)'):'none'),'border':(isIndexAnswerCol($parent.$index,$index)?'2px solid #003366':'none')}" style="text-align: center;  position: relative;">
                     <div style="font-size: 48px; height: 72px;" >{{letter}} </div>
                     <!--<div>{{field}}</div>-->
                 </td>
