@@ -20,7 +20,8 @@ angular.module('myApp.view1', ['ngRoute','ngFitText'])
         $scope.crosswordTextFields = [
             {textFieldAnswer: "FISH", quizText:"Swims in the sea", offset:2},
             {textFieldAnswer: "HOME", quizText:"Where you live", offset:0},
-            {textFieldAnswer: "BORING", quizText:"Doing nothing", offset:1}
+            {textFieldAnswer: "BORING", quizText:"Doing nothing", offset:1},
+            {textFieldAnswer: "WC", quizText:"A differnt word for bathroom", offset:0}
         ];
 
 
@@ -66,7 +67,14 @@ angular.module('myApp.view1', ['ngRoute','ngFitText'])
             return false;
         };
 
-        //TODO: Fikse slik at den tar in et object og henter textAnswer fra den.
+        $scope.isIndexAnswerCol = function(row, colIndex) {
+            if(colIndex == left){
+                return true;
+            }
+            return false;
+        };
+
+        //TODO: Denne kjører hver gang det skjer endringer, helt i slutten kan den sende svar inn til server.
         $scope.tableWidth = function (){
 
             var tempArray = $scope.crosswordArray;
@@ -133,7 +141,6 @@ angular.module('myApp.view1', ['ngRoute','ngFitText'])
             $scope.tableWidth += 1;
             return $scope.tableWidth;
         }
-
 
 
 
