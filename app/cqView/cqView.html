@@ -32,7 +32,7 @@
     <!-- Input field for altering textFieldAnswers for selected row-->
     <div class="row" style="margin-top:20px;">
         <div class="col-xs-2"></div>
-        <input class="col-xs-8 input-lg"  ng-model="selectedField.textAnswer" maxlength="{{selectedField.length}}" capitalize>
+        <input class="col-xs-8 input-lg" data-ng-trim="false"  ng-model="selectedField.textAnswer" maxlength="{{selectedField.length}}" capitalize>
         <div class="col-xs-2"></div>
     </div>
     <!-- Button that submits the current answer to the server and sends the user onwards-->

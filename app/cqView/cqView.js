@@ -1,16 +1,33 @@
 'use strict';
 
-angular.module('myApp.view1', ['ngRoute','ngFitText'])
+angular.module('myApp.cqView', ['ngRoute','ngFitText'])
 
     .config(['$routeProvider', function($routeProvider) {
-        $routeProvider.when('/view1', {
-            templateUrl: 'view1/view1.html',
-            controller: 'View1Ctrl'
+        $routeProvider.when('/cqView', {
+            templateUrl: 'cqView/cqView.html',
+            controller: 'cqViewCtrl'
         });
     }])
 
-    .controller('View1Ctrl', ['$scope',function($scope) {
+    .controller('cqViewCtrl', ['$scope',function($scope,$http) {
 
+        //$http.get('/api/bar').success(function(data) {
+        //    $scope.bars = data; // stores the data in a usable variable.
+        //    console.log(data);
+        //});
+
+        //$http.post("/api/bar", newbar).success(function(data) {
+        //    $scope.bars.push(data);
+        //    console.log(data);
+        //});
+        var absUrl = window.location.pathname;
+        console.log(absUrl);
+        //$http.get('localhost:8082/api/bar').success(function(data) {
+        //
+        //    $scope.crosswordTextFields = data; // stores the data in a usable variable.
+        //    console.log(data);
+        //    generateDummyAnswers();
+        //});
 
         var left = 0;
         var right = 0;
@@ -58,6 +75,7 @@ angular.module('myApp.view1', ['ngRoute','ngFitText'])
                     right = fields[i].textFieldAnswer.length - fields[i].offset;
                 }
             }
+            $scope.selectedField = $scope.crosswordTextFieldAnswers[0];
         }
 
         $scope.isIndexGrey = function(row, colIndex) {
