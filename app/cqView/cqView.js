@@ -9,7 +9,7 @@ angular.module('myApp.cqView', ['ngRoute','ngFitText'])
         });
     }])
 
-    .controller('cqViewCtrl', ['$scope',function($scope,$http) {
+    .controller('cqViewCtrl', ['$scope','$http',function($scope,$http) {
 
         //$http.get('/api/bar').success(function(data) {
         //    $scope.bars = data; // stores the data in a usable variable.
@@ -22,24 +22,24 @@ angular.module('myApp.cqView', ['ngRoute','ngFitText'])
         //});
         var absUrl = window.location.pathname;
         console.log(absUrl);
-        //$http.get('localhost:8082/api/bar').success(function(data) {
-        //
-        //    $scope.crosswordTextFields = data; // stores the data in a usable variable.
-        //    console.log(data);
-        //    generateDummyAnswers();
-        //});
+        $http.get('http://localhost:8082/My.pg/data/tasks/0/getSecretCrosswordTextFields').success(function(data) {
+
+            $scope.crosswordTextFields = data; // stores the data in a usable variable.
+            console.log(data);
+            generateDummyAnswers();
+        });
 
         var left = 0;
         var right = 0;
         var fields =[];
 
             //Dummy data:
-        $scope.crosswordTextFields = [
-            {textFieldAnswer: "FISH", quizText:"Swims in the sea", offset:2},
-            {textFieldAnswer: "HOME", quizText:"Where you live", offset:0},
-            {textFieldAnswer: "BORING", quizText:"Doing nothing", offset:1},
-            {textFieldAnswer: "WC", quizText:"A differnt word for bathroom", offset:0}
-        ];
+        //$scope.crosswordTextFields = [
+        //    {textFieldAnswer: "FISH", quizText:"Swims in the sea", offset:2},
+        //    {textFieldAnswer: "HOME", quizText:"Where you live", offset:0},
+        //    {textFieldAnswer: "BORING", quizText:"Doing nothing", offset:1},
+        //    {textFieldAnswer: "WC", quizText:"A differnt word for bathroom", offset:0}
+        //];
 
 
         //Array containing the textField answers as objects
@@ -52,7 +52,7 @@ angular.module('myApp.cqView', ['ngRoute','ngFitText'])
         $scope.selectedField = $scope.crosswordTextFieldAnswers[0];
 
         //This method should be in the initial setup (order matters)
-        generateDummyAnswers();
+        //generateDummyAnswers();
         function generateDummyAnswers(){
             fields = $scope.crosswordTextFields;
 
